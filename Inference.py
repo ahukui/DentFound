@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-LLaVA Inference Script with Excel Output
+Inference Script with Excel Output
 Based on the working evaluation code from LLaVA
 """
 
