@@ -31,7 +31,7 @@ deepspeed --master_addr $MASTER_ADDR --master_port $MASTER_PORT train_mem.py \
   --lora_enable True \
   --lora_r 128 \
   --lora_alpha 256 \
-  --mm_projector_lr 2e-5 \
+  --mm_projector_lr 5e-4 \
   --deepspeed ./scripts/zero3.json \
   --model_name_or_path llava_v1.5_7b \
   --version v1 \
