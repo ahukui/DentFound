@@ -17,7 +17,7 @@ echo "=== Job started at $(date) on $(hostname) ==="
 
 # Load your conda environment properly
 source ~/.bashrc  # Or your shell config
-conda activate llava
+conda activate dentfound
 
 export CUDA_HOME=/usr/local/cuda-12.8
 export PATH=$CUDA_HOME/bin:$PATH
