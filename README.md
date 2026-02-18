@@ -121,7 +121,7 @@ Here, We provied two training strategies:
 
 If you are interested in finetuning the model to your own task/data, careful data formatting is essential. In our implementation,
 the **panoramic radiograph (PR) image and the corresponding tooth information are concatenated as a unified input**.
-## Training Command (DeepSpeed)
+## Example of Training Command (DeepSpeed)
 deepspeed train_mem.py \
     --deepspeed ./scripts/zero3.json \
     --model_name_or_path ./vicuna-v1-3-7b \
@@ -160,7 +160,7 @@ deepspeed train_mem.py \
 
 For users with limited training data or computational resources, we recommend using **LoRA**, which significantly reduces training
 cost while maintaining competitive performance.
-## Training Command (DeepSpeed)
+## Example of Training Command (DeepSpeed)
 deepspeed train_mem.py \
   --lora_enable True \
   --lora_r 128 \
@@ -199,4 +199,14 @@ deepspeed train_mem.py \
   --dataloader_num_workers 8 \
   --lazy_preprocess True
 ```
+## Related Projects
+
+Parts of our code are adapted from or inspired by the following projects. We sincerely appreciate their contributions:
+
+- **[LlamaFactory](https://github.com/hiyouga/LlamaFactory)**
+- **[LLaVA: Large Language and Vision Assistant](https://github.com/haotian-liu/LLaVA)**
+- **[LLaVA-Med: Large Language and Vision Assistant for Biomedicine](https://github.com/microsoft/LLaVA-Med)**
+- **[Otter: In-Context Multi-Modal Instruction Tuning](https://github.com/EvolvingLMMs-Lab/Otter)**
+
+
 
