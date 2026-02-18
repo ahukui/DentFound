@@ -49,12 +49,12 @@ deepspeed --master_addr $MASTER_ADDR --master_port $MASTER_PORT train_mem.py \
   --num_train_epochs 6 \
   --per_device_train_batch_size 24 \
   --per_device_eval_batch_size 24 \
-  --gradient_accumulation_steps 8 \
+  --gradient_accumulation_steps 1 \
   --evaluation_strategy "no" \
   --save_strategy "steps" \
-  --save_steps 500 \
+  --save_steps 50000 \
   --save_total_limit 10 \
-  --learning_rate 2e-4 \
+  --learning_rate 2e-5 \
   --weight_decay 0.0 \
   --warmup_ratio 0.03 \
   --lr_scheduler_type "cosine" \
