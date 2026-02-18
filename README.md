@@ -146,13 +146,29 @@ All of this training data is recorded in JSON format.
 ```
 ### 2) Tranining
 ```bash
-The model was trained using **bfloat16 mixed precision** to ensure training stability, leveraging **8 × NVIDIA
-A100 GPUs (80 GB each)** in a distributed setting.
+After completing the above steps, the project structure should look like this:
+DentFound/
+├── checkpoints/
+│   ├── vicuna-7b-v1.5/          # Downloaded LLM
+│   ├── clip-vit-large-patch14/  # Downloaded vision encoder
+│   └── lora_output/             # Training outputs
+├── Dataset/
+│   ├── training.json            # Training data
+│   └── images/                  # Dental images and masks
+├── DentFound/                   # Source code
+├── scripts/
+│   └── zero3.json               # DeepSpeed configuration
+├── setup.py                     # Enables pip installation
+├── train.sh                     # SLURM launch script
+└── train_mem.py                 # Training entry point
+
+The model was trained using **bfloat16 mixed precision** to ensure training stability, leveraging **8 × NVIDIA A100 GPUs
+(80 GB each)** in a distributed setting.
 Here, We provied two training strategies:
 - **Fine-tuning**, where all model parameters are updated.
 - **LoRA (Low-Rank Adaptation)**, a parameter-efficient alternative for resource-constrained scenarios.
 
-If you are interested in finetuning the model to your own task/data, careful data formatting is essential. In our implementation,
+If you are interested in fine-tuning the model to your own task/data, careful data formatting is essential. In our implementation,
 the **panoramic radiograph (PR) image and the corresponding tooth information are concatenated as a unified input**.
 ## Example of Training Command (DeepSpeed)
 deepspeed train_mem.py \
