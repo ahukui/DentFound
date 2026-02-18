@@ -27,16 +27,16 @@ export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
 export MASTER_ADDR=127.0.0.1
 export MASTER_PORT=$((10000 + RANDOM % 40000))
 
-deepspeed --master_addr $MASTER_ADDR --master_port $MASTER_PORT train_mem.py \
+deepspeed train_mem.py \
   --lora_enable True \
   --lora_r 128 \
   --lora_alpha 256 \
   --mm_projector_lr 5e-4 \
   --deepspeed ./scripts/zero3.json \
-  --model_name_or_path ./checkpoints/ \
+  --model_name_or_path ./vicuna-7b-v1.5 \
   --version v1 \
-  --data_path ./Dataset/training.json \
-  --image_folder "./Dataset/images/" \
+  --data_path ./Dataset/training.json  \
+  --image_folder ./Dataset/images/ \
   --vision_tower ./clip-vit-large-patch14-336 \
   --mm_projector_type mlp2x_gelu \
   --mm_vision_select_layer -2 \
@@ -45,7 +45,7 @@ deepspeed --master_addr $MASTER_ADDR --master_port $MASTER_PORT train_mem.py \
   --image_aspect_ratio pad \
   --group_by_modality_length True \
   --bf16 True \
-  --output_dir ./checkpoints/lora \
+  --output_dir ./checkpoints/lora_output \
   --num_train_epochs 6 \
   --per_device_train_batch_size 24 \
   --per_device_eval_batch_size 24 \
@@ -58,7 +58,7 @@ deepspeed --master_addr $MASTER_ADDR --master_port $MASTER_PORT train_mem.py \
   --weight_decay 0.0 \
   --warmup_ratio 0.03 \
   --lr_scheduler_type "cosine" \
-  --logging_steps 500 \
+  --logging_steps 100 \
   --tf32 True \
   --model_max_length 2048 \
   --gradient_checkpointing True \
