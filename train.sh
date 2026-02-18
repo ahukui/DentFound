@@ -5,7 +5,7 @@
 #SBATCH --nodes=1                      # Number of nodes
 #SBATCH --cpus-per-task=64             # Number of CPU cores
 #SBATCH --mem=256G                     # Total memory
-#SBATCH --time=100:00:00                # Max run time (12 hours)
+#SBATCH --time=320:00:00                # Max run time (12 hours)
 #SBATCH --gres=gpu:8                   # Request 4 GPUs
 #SBATCH --output=logs/%x_%j.out        # Save stdout to logs/jobname_jobid.out
 #SBATCH --error=logs/%x_%j.err         # Save stderr to logs/jobname_jobid.err
@@ -33,11 +33,11 @@ deepspeed --master_addr $MASTER_ADDR --master_port $MASTER_PORT train_mem.py \
   --lora_alpha 256 \
   --mm_projector_lr 5e-4 \
   --deepspeed ./scripts/zero3.json \
-  --model_name_or_path llava_v1.5_7b \
+  --model_name_or_path ./checkpoints/ \
   --version v1 \
-  --data_path ToothQue.json \
-  --image_folder "" \
-  --vision_tower openai/clip-vit-large-patch14-336 \
+  --data_path ./Dataset/training.json \
+  --image_folder "./Dataset/images/" \
+  --vision_tower ./clip-vit-large-patch14-336 \
   --mm_projector_type mlp2x_gelu \
   --mm_vision_select_layer -2 \
   --mm_use_im_start_end False \
