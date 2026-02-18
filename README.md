@@ -41,7 +41,7 @@ Visual Encoder → Visual Features → Projection Layer → Aligned Embedding �
 DentFound employs the pre-trained **CLIP ViT-L/14** model as the visual backbone.  
 The encoder is initialized with its official pre-trained weights prior to PR image training.
 Pre-trained weights are available at:
-https://huggingface.co/openai/clip-vit-large-patch14
+https://huggingface.co/openai/clip-vit-large-patch14-336
 ```
 ### 2) Projection Layer
 ```bash
