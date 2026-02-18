@@ -129,7 +129,7 @@ All of this training data is recorded in JSON format.
   },
   {
     "id": "3798e94f-f32e-4355-b202-9c7aa8aef702",
-    "image": "/P0086918-101143697-2025-02-19.png",
+    "image": "P0086918-101143697-2025-02-19.png",
     "conversations": [
       {
         "from": "human",
