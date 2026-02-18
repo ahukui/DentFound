@@ -222,7 +222,7 @@ class CLIPVisionTower(nn.Module):
         return image_features
 
     def forward(self, images):
-        # image and mask are concated into one image
+        # [image||mask||image] are concated into one 3-channel RGB image
         image = images[:, 0, :, :].unsqueeze(1).repeat(1, 3, 1, 1)
         mask = images[:, 1, :, :].unsqueeze(1).repeat(1, 3, 1, 1)
         image_forward_outs = self.vision_tower(image.to(device=self.device, dtype=self.dtype), output_hidden_states=True)
