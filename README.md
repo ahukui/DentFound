@@ -149,7 +149,7 @@ All of this training data is recorded in JSON format.
 After completing the above steps, the project structure should look like this:
 DentFound/
 ├── checkpoints/
-│   ├── vicuna-7b-v1.5/          # Downloaded LLM
+│   ├── vicuna-v1-3-7b/          # Downloaded LLM
 │   ├── clip-vit-large-patch14/  # Downloaded vision encoder
 │   └── lora_output/             # Training outputs
 ├── Dataset/
@@ -173,11 +173,11 @@ the **panoramic radiograph (PR) image and the corresponding tooth information ar
 ## Example of Training Command (DeepSpeed)
 deepspeed train_mem.py \
     --deepspeed ./scripts/zero3.json \
-    --model_name_or_path ./vicuna-v1-3-7b \
+    --model_name_or_path ./checkpoints/vicuna-v1-3-7b \
     --version v1 \
     --data_path ./Dataset/training.json \
     --image_folder ./Dataset/images/ \
-    --vision_tower ./clip-vit-large-patch14-336 \
+    --vision_tower ./checkpoints/clip-vit-large-patch14-336 \
     --mm_projector_type mlp2x_gelu \
     --mm_vision_select_layer -2 \
     --mm_use_im_start_end False \
@@ -215,11 +215,11 @@ deepspeed train_mem.py \
   --lora_alpha 256 \
   --mm_projector_lr 5e-4 \
   --deepspeed ./scripts/zero3.json \
-  --model_name_or_path ./vicuna-7b-v1.5 \
+  --model_name_or_path ./checkpoints/vicuna-v1-3-7b \
   --version v1 \
   --data_path ./Dataset/training.json  \
   --image_folder ./Dataset/images/ \
-  --vision_tower ./clip-vit-large-patch14-336 \
+  --vision_tower ./checkpoints/clip-vit-large-patch14-336 \
   --mm_projector_type mlp2x_gelu \
   --mm_vision_select_layer -2 \
   --mm_use_im_start_end False \
