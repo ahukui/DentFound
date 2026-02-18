@@ -109,7 +109,40 @@ impressions.
 ### Summary
 These four data formats enable progressive learning from localized tooth-level cues to holistic clinical reasoning,
 forming the foundation of DentFound’s multi-granularity training paradigm.
-All of this training data is recorded in JSON format (Representative training data are provided in the Dataset folder).
+All of this training data is recorded in JSON format.
+## Example Training Data Format
+```json
+[
+  {
+    "id": "c973890f-a12e-4bfb-aaca-4bf62daf2030",
+    "image": "P0086918-101143697-2025-02-19.png",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>Please provide a diagnosis for Tooth 23."
+      },
+      {
+        "from": "gpt",
+        "value": "Tooth 23 (upper left canine) has periapical radiolucency."
+      }
+    ]
+  },
+  {
+    "id": "3798e94f-f32e-4355-b202-9c7aa8aef702",
+    "image": "/P0086918-101143697-2025-02-19.png",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>Please provide a diagnosis for Tooth 37."
+      },
+      {
+        "from": "gpt",
+        "value": "Tooth 37 (lower left second molar) has a residual root."
+      }
+    ]
+  }
+......
+]
 ```
 ### 2) Tranining
 ```bash
