@@ -205,7 +205,6 @@ Parts of our code are adapted from or inspired by the following projects. We sin
 
 - **[LlamaFactory](https://github.com/hiyouga/LlamaFactory)**
 - **[LLaVA: Large Language and Vision Assistant](https://github.com/haotian-liu/LLaVA)**
-- **[LLaVA-Med: Large Language and Vision Assistant for Biomedicine](https://github.com/microsoft/LLaVA-Med)**
 - **[Otter: In-Context Multi-Modal Instruction Tuning](https://github.com/EvolvingLMMs-Lab/Otter)**
 
 
