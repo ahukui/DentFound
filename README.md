@@ -65,7 +65,7 @@ See https://vicuna.lmsys.org (accessed 14 April 2023) 2.3 (2023):6.
 For DentFound training, we propose a progressive learning paradigm that enables stepwise knowledge acquisition,
 progressing from discrete point-level cues to holistic surface representations. Report generation is decoupled
 into two stages—diagnosis and composition—thereby addressing the limitations imposed by incomplete and sparse
-dental reports. Representative samples of the training data are provided in the Dataset folder.
+dental reports. 
 ```
 ### 1) Prepare data
 ```bash
