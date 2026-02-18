@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """
 Inference Script with Excel Output
-Based on the working evaluation code from LLaVA
 """
 
 import argparse
@@ -309,7 +308,7 @@ class DentFoundInference:
 
 
 def main():
-    parser = argparse.ArgumentParser(description='LLaVA Inference with Excel Output')
+    parser = argparse.ArgumentParser(description='Inference with Excel Output')
     
     # Model arguments
     parser.add_argument("--model-path", type=str, required=True,
@@ -324,7 +323,7 @@ def main():
                         help="Path to save Excel results")
     
     # Generation arguments
-    parser.add_argument("--conv-mode", type=str, default="llava_v1",
+    parser.add_argument("--conv-mode", type=str, default="v1",
                         help="Conversation mode")
     parser.add_argument("--temperature", type=float, default=0.2,
                         help="Sampling temperature")
@@ -347,7 +346,7 @@ def main():
     
     args = parser.parse_args()
     
-    print("🚀 Starting LLaVA Inference")
+    print("🚀 Starting Inference")
     print(f"📁 Model: {args.model_path}")
     print(f"📄 Test file: {args.test_json}")
     print(f"💾 Output: {args.output_excel}\n")
